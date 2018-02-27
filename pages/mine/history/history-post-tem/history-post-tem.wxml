@@ -1,0 +1,14 @@
+ <template name="history-post-tem"> 
+  <view class="post-container">
+    <text class="post-date">订单号 : {{onum}}</text>
+    <view class='post-die'>
+      <text class="post-title">{{orgin}}</text>
+      <view class='post-die2'>
+        <text class="post-content">{{distance}}</text>
+        <image class='post-image' src="/images/post/icon4.png"></image>
+      </view>
+      <text class="post-title">{{destination}}</text>
+    </view>
+    <text class="post-content">金额:{{money}}元</text>
+  </view>
+ </template> 

@@ -1,0 +1,39 @@
+<import src="post-item/post-item-template.wxml" />
+<!--<import src="/pages/posts/post-item/post-item-template.wxml" />-->
+
+<view>
+  <view catchtap='goToDayOrders'>
+    <text style=" display: flex;justify-content: center;">{{text}}</text>
+  </view>
+</view>
+
+<view>
+  <view wx:for="{{postList}}" wx:key="this">
+    <view class="post-container">
+      <text class="post-date">订单号 : {{item.onum}}</text>
+      <view class='post-die'>
+        <text class="post-title">{{item.orgin}}</text>
+        <view class='post-die2'>
+          <text class="post-content">{{item.distance}}</text>
+          <image class='post-image' src="/images/post/icon4.png"></image>
+        </view>
+        <text class="post-title">{{item.destination}}</text>
+      </view>
+      <text class="post-content">    金额  :  {{item.money}}元
+            </text>
+      <button id='{{item.objectId}}' class="post-confirm" catchtap='onConfirmTap' data-index="{{index}}">接受订单</button>
+    </view>
+  </view>
+<view catchtap='addMore' class="loading" hidden="{{!searchLoading}}">点击载入更多</view>  
+<view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view> 
+</view>
+<view class="loading2" hidden="{{!message}}">暂无订单发布！</view>
+
+<modal hidden="{{hiddenmodalput}}" title="注册后即可开始接单" cancel-text="取消" bindcancel="cancel" confirm-text="提交" bindconfirm="confirm">
+<view style='padding-bottom:15rpx;color: #ccc;text-align: center;font-size:20rpx;'>（手机号仅供核对司机信息之用）</view>
+  <input type='pattern' name="phone" placeholder="请输入手机号" maxlength='11' auto-focus bindinput="phoneInput" />
+  <view class='phoneNumber'>
+    <input type='number' name="code" placeholder='请输入验证码' maxlength='6' auto-focus bindinput="codeInput" />
+    <button catchtap='confirmNumber' disabled="{{codeDis}}">{{tis}}</button>
+  </view>
+</modal>

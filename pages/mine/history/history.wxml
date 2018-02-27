@@ -1,0 +1,18 @@
+<import src="history-post-tem/history-post-tem.wxml" />
+
+<!-- 日期 -->
+<view class='tips_text' wx:if="{{flase}}">
+  <text>暂时还没有完成的订单</text>
+</view>
+
+<block wx:for="{{res_arr}}">
+  <view class='calendar'>
+  <text class='calendar_text'>{{date_arr[index]}}</text>
+  </view>
+  <block wx:for="{{item}}">
+    <!-- 点击整个出现详情，待做 -->
+    <view>
+      <template is="history-post-tem" data="{{...item}}" />
+    </view>
+  </block>
+</block>

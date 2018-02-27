@@ -1,0 +1,16 @@
+<view class='all'>
+  <view class='today' catchtap='onclickToday'>
+    <text class="today-post">当日表单提交</text>
+    <!-- <image src='../../../images/icon/jiantou.png' class='image-jiantou'></image> -->
+  </view>
+
+  <view class='today' catchtap='onclickHistory'>
+    <text class="today-post">历史订单</text>
+    <!-- <image src='../../../images/icon/jiantou.png' class='image-jiantou'></image> -->
+  </view>
+
+  <!-- <view class='today' catchtap='onclickus'> -->
+    <!-- <text class="today-post">联系我们</text> -->
+    <!-- <image src='../../../images/icon/jiantou.png' class='image-jiantou'></image> -->
+  <!-- </view> -->
+</view>

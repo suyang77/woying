@@ -1,0 +1,13 @@
+/* pages/mine/history/history.wxss */
+@import "history-post-tem/history-post-tem.wxss";
+
+.calendar_text{
+  font-size: 36rpx;
+  padding-top: 300rpx;
+  font-weight: bold;
+  letter-spacing:2rpx;
+}
+
+.calendar{
+  margin: 20rpx 0 20rpx 30rpx; 
+}
