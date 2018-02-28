@@ -14,7 +14,7 @@
         <text class="post-content">距离你  :  {{distance}}    金额  :  {{money}}
             </text>
       </view>
-       <text class='post-xiangqing' catchtap='onClick'>详情></text> 
+      <text class='post-xiangqing' catchtap='onClick'>详情></text>
     </view>
     <view class='post-dingdan'>
       <button class="post-confirm-success" bindtap='onConfirmTap'>完成订单</button>

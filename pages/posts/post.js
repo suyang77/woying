@@ -112,7 +112,7 @@ Page({
                 //移除相关数据
                 _this.data.postList.splice(_this.data.removeIndex, 1);
                 _this.setData({
-                  postList: this.data.postList
+                  postList: _this.data.postList
                 });
               }
             }

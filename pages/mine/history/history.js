@@ -3,6 +3,7 @@ const AV = require('../../../utils/av-live-query-weapp-min');
 
 Page({
   data: {
+    ondetail: false,
     res_arr:[],
     date_arr:[]
   },
@@ -76,5 +77,49 @@ Page({
     var d = date.getDate()
     var normal_date = y + "年" + m + "月" + d+"日"
     return normal_date
-  }
+  },
+
+  //打开详情逻辑
+  ondetail: function (event) {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 200
+    })
+    var that = this
+
+    console.log(event)
+
+    var dataset = event.target;
+    var Index = dataset.id;
+
+    var ondetail = this.data.ondetail
+    if (ondetail == false) {
+
+      var query = new AV.Query('Orders');
+      query.get(Index).then(res => this.setData({postList_detail:res,
+        ondetail: true})
+      );
+
+      // setTimeout(function () {
+
+      //   var postList = that.data.postList
+      //   var postList_detail = postList[Index]
+
+      //   that.setData({
+      //     ondetail: true,
+      //     postList_detail: postList_detail
+      //   })
+      // }, 200)
+    }
+    else { }
+  },
+
+  //关闭详情逻辑
+  close_detail: function () {
+    this.setData({
+      ondetail: false
+    })
+  },
 })
+

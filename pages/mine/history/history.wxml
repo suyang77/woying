@@ -1,18 +1,55 @@
-<import src="history-post-tem/history-post-tem.wxml" />
+<!-- <import src="history-post-tem/history-post-tem.wxml" />  -->
 
 <!-- 日期 -->
 <view class='tips_text' wx:if="{{flase}}">
   <text>暂时还没有完成的订单</text>
 </view>
 
-<block wx:for="{{res_arr}}">
-  <view class='calendar'>
-  <text class='calendar_text'>{{date_arr[index]}}</text>
-  </view>
-  <block wx:for="{{item}}">
-    <!-- 点击整个出现详情，待做 -->
-    <view>
-      <template is="history-post-tem" data="{{...item}}" />
+<view>
+  <block wx:for="{{res_arr}}">
+    <view class='calendar'>
+      <text class='calendar_text'>{{date_arr[index]}}</text>
     </view>
+    <block wx:for="{{item}}" wx:for-item="item">
+      <!-- 点击整个出现详情，待做 -->
+      <view>
+        <view class="post-container">
+          <text class="post-date">订单号 : {{item.onum}}</text>
+          <view class='superfather'>
+            <view class='father'>
+              <view class='post-die'>
+                <text class="post-title">{{item.orgin}}</text>
+                <view class='post-die2'>
+                  <text class="post-content">{{item.distance}}</text>
+                  <image class='post-image' src="/images/post/icon4.png"></image>
+                </view>
+                <text class="post-title">{{item.destination}}</text>
+              </view>
+              <text class="post-content">金额:{{item.money}}元
+            </text>
+            </view>
+            <text class='post-xiangqing' catchtap='ondetail' id="{{item.objectId}}">详情></text>
+          </view>
+        </view>
+      </view>
+    </block>
   </block>
-</block>
+</view>
+
+<!-- 详情框 -->
+<view class='detail' hidden='{{!ondetail}}'>
+  <view class='detail_title'>
+    <text>订单详情</text>
+  </view>
+  <view class='order_num'>
+    <text>编号:{{postList_detail.onum}}</text>
+  </view>
+  <view class='detail_entry'>
+    <text>发货点：{{postList_detail.orgin}}</text>
+    <text>收货点：{{postList_detail.destination}}</text>
+    <text>酬劳：{{postList_detail.money}}元</text>
+    <text>货物数量：{{postList_detail.goods_num}}件</text>
+    <text>收货人电话：{{postList_detail.client_phone}}</text>
+  </view>
+  <button class='back' catchtap='close_detail'>返回</button>
+</view>

@@ -4,12 +4,8 @@ var app = getApp();
 
 Page({
   data: {
-    hiddenmodalput: true,
-    hiddenmodalput1: true,
-    hiddenmodalput2: true,
     postList: '',
     ondetail: false,
-
     message: false,
     searchPageNum: 1,   // 设置加载的第几次，默认是第一次  
     callbackcount: 10,      //返回数据的个数  
@@ -46,6 +42,7 @@ Page({
       duration: 200
     })
     var that = this
+  
 
     var dataset = event.target.dataset;
     var Index = dataset.index;
